@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.CuackApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/secondary</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="colorButtonNormal">@color/button_light</item>
+        <item name="colorBackgroundFloating">@color/bg_selector</item>
+        <item name="android:colorBackgroundFloating" tools:targetApi="23">@color/bg_selector</item>
+
+        <item name="android:windowBackground">@color/background_light</item>
+        <item name="android:textColorPrimary">@color/slate_900</item>
+        <item name="android:textColorSecondary">@color/slate_600</item>
+
+        <item name="colorControlNormal">@color/slate_400</item>
+        <item name="colorControlActivated">@color/primary</item>
+
+        <item name="android:statusBarColor">@color/secondary</item>
+    </style>
+</resources>
