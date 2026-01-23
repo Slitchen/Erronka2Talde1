@@ -9,10 +9,10 @@ app.use(bodyParser.json());
 
 // Configurar la conexión a la base de datos MySQL
 const db = mysql.createConnection({
-    host: 'localhost', // Dirección del servidor MySQL
-    user: 'root', // Usuario de MySQL
+    host: '10.5.104.131', // Dirección del servidor MySQL
+    user: 'dataExchanger', // Usuario de MySQL
     port: '3306',
-    password: '', // Contraseña de MySQL
+    password: 'cuack12345', // Contraseña de MySQL
     database: 'db_eduelorrieta', // Nombre de tu base de datos
 });
 
