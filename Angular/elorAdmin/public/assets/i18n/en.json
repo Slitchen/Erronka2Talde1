@@ -1,0 +1,202 @@
+{
+  "LOGIN": {
+    "TITULO": "Sign In",
+    "USUARIO": "Username",
+    "PLACEHOLDER_USUARIO": "Enter your username",
+    "ERROR_USUARIO_REQ": "Username is required",
+    "PASSWORD": "Password",
+    "PLACEHOLDER_PASSWORD": "Enter your password",
+    "ERROR_PASSWORD_REQ": "Password is required",
+    "BOTON_ENTRAR": "Login",
+    "ERROR_AUTH": "Incorrect username or password"
+  },
+
+  "NAVBAR": {
+    "LOGOUT": "Log out"
+  },
+
+  "ROLES": {
+    "GOD": "GOD",
+    "ADMINISTRADOR": "ADMINISTRATOR",
+    "PROFESOR": "TEACHER",
+    "ALUMNO": "STUDENT"
+  },
+
+  "GOD": {
+    "TITULO": "GOD"
+  },
+
+  "ADMIN": {
+    "TITULO": "Administrator",
+    "BUSCADOR_PLACEHOLDER": "Search by name, surname or ID...",
+    "STATS": {
+      "PROFESORES": "Teachers",
+      "ALUMNOS": "Students",
+      "REUNIONES": "Meetings today"
+    },
+    "LISTADO": {
+      "PROFESORES": "Teachers",
+      "ALUMNOS": "Students"
+    },
+    "ACCIONES": {
+      "EDITAR": "Edit",
+      "BORRAR": "Delete",
+      "CANCELAR": "Cancel",
+      "ACTUALIZAR": "Update",
+      "CREAR_USUARIO": "Create user",
+      "CREAR": "Create"
+    },
+    "FORM": {
+      "TITULO_UPDATE": "Update user",
+      "TITULO_CREAR": "Create user",
+      "NOMBRE": "First name",
+      "APELLIDOS": "Last name",
+      "EMAIL": "Email",
+      "USUARIO": "Username",
+      "PASSWORD": "Password",
+      "TEL1": "Phone 1",
+      "TEL2": "Phone 2",
+      "DIRECCION": "Address",
+      "URL_IMAGEN": "Image URL",
+      "TIPO": "Type",
+      "ERR_REQ": "Required field",
+      "ERR_EMAIL": "Invalid email format",
+      "ERR_TEL": "Invalid phone format"
+    },
+    "REUNIONES": {
+      "TITULO": "Meetings",
+      "ESTADO": "Status",
+      "ASUNTO": "Subject",
+      "PROFESOR": "Teacher",
+      "ALUMNO": "Student",
+      "LUGAR": "Location",
+      "FECHA": "Date",
+      "SIN_REUNIONES": "There are no meetings.",
+      "PAG_PRIMERA": "First",
+      "PAG_ANTERIOR": "Previous",
+      "PAG_SIGUIENTE": "Next",
+      "PAG_ULTIMA": "Last"
+    }
+  },
+
+  "ALUMNO_PORTAL": {
+    "TITULO_PAGINA": "Student Portal",
+    "SUBTITULO": "Profile and schedule management",
+    "SECCION_INFO": "My information",
+
+    "LABEL_USUARIO": "Username",
+    "LABEL_PASSWORD": "Password",
+    "LABEL_EMAIL": "Email",
+    "LABEL_DNI": "ID",
+    "LABEL_TELEFONOS": "Phones",
+    "LABEL_DIRECCION": "Address",
+
+    "HORARIO": {
+      "TITULO": "Schedule",
+      "HORA": "Time"
+    },
+
+    "REUNIONES": {
+      "TITULO": "Meetings",
+      "ESTADO": "Status",
+      "ASUNTO": "Subject",
+      "LUGAR": "Location",
+      "FECHA": "Date",
+      "SIN_REUNIONES": "There are no meetings."
+    }
+  },
+
+  "PROFESOR_PORTAL": {
+    "TITULO_PAGINA": "Teacher Portal",
+    "SUBTITULO": "Personal information, meetings and educational centers",
+    "SECCION_INFO": "Personal information",
+
+    "BUSCADOR_PLACEHOLDER": "Search teachers or students...",
+    "OTROS_PROFESORES": "Other teachers",
+    "ALUMNOS": "Students",
+    "DETALLES_CLICK": "Click to view details",
+
+    "ACCIONES": {
+      "VER": "View",
+      "OCULTAR": "Hide",
+      "USER": "Username",
+      "TEL": "Phone",
+      "EMAIL": "Email",
+      "DIR": "Address"
+    },
+
+    "REUNIONES": {
+      "TITULO": "Meetings",
+      "ESTADO": "Status",
+      "ASUNTO": "Subject",
+      "LUGAR": "Location",
+      "FECHA": "Date",
+      "SIN_REUNIONES": "No meetings scheduled",
+
+      "BOTON_CREAR": "Create meeting",
+      "FORM_TITULO": "New meeting",
+
+      "LABEL_TITULO": "Title",
+      "LABEL_ASUNTO": "Subject",
+      "LABEL_ALUMNO": "Student",
+      "LABEL_FECHA": "Date and time",
+      "LABEL_AULA": "Classroom",
+      "LABEL_CENTRO": "Center",
+
+      "SELECT_ALUMNO": "Select a student",
+      "SELECT_CENTRO": "Select a center",
+
+      "ERR_REQ": "This field is required",
+
+      "BTN_CANCELAR": "Cancel",
+      "BTN_CREAR": "Create"
+    },
+
+    "LISTADO_CENTROS": {
+      "TITULO": "Center list",
+      "FILTRO_TITULARIDAD": "Ownership",
+      "FILTRO_TERRITORIO": "Territory",
+      "FILTRO_MUNICIPIO": "Municipality",
+
+      "TODAS": "All",
+      "TODOS": "All",
+
+      "RESULTADOS": "Results",
+      "CENTROS_MIN": "centers",
+
+      "TABLA_ID": "ID",
+      "TABLA_NOMBRE": "Name",
+      "TABLA_PROVINCIA": "Province",
+
+      "SIN_CENTROS": "No centers available",
+
+      "PAG_PRIMERA": "First",
+      "PAG_ANTERIOR": "Previous",
+      "PAG_SIGUIENTE": "Next",
+      "PAG_ULTIMA": "Last",
+
+      "PAGINA_LABEL": "Page",
+      "DE_LABEL": "of"
+    }
+  },
+
+  "CENTRO": {
+    "TITULO": "Center",
+    "NOMBRE": "Name",
+    "TITULARIDAD": "Ownership",
+    "MUNICIPIO": "Municipality",
+    "PROVINCIA": "Province",
+    "DIRECCION": "Address",
+    "CP": "Postal Code",
+    "TELEFONO": "Phone",
+    "ERROR_MAPA": "The coordinates of this center could not be loaded."
+  },
+
+  "DIAS": {
+    "LUNES": "Monday",
+    "MARTES": "Tuesday",
+    "MIERCOLES": "Wednesday",
+    "JUEVES": "Thursday",
+    "VIERNES": "Friday"
+  }
+}

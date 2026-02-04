@@ -1,0 +1,201 @@
+{
+  "LOGIN": {
+    "TITULO": "Saioa hasi",
+    "USUARIO": "Erabiltzailea",
+    "PLACEHOLDER_USUARIO": "Idatzi zure erabiltzailea",
+    "ERROR_USUARIO_REQ": "Erabiltzailea derrigorrezkoa da",
+    "PASSWORD": "Pasahitza",
+    "PLACEHOLDER_PASSWORD": "Idatzi zure pasahitza",
+    "ERROR_PASSWORD_REQ": "Pasahitza derrigorrezkoa da",
+    "BOTON_ENTRAR": "Sartu",
+    "ERROR_AUTH": "Erabiltzaile edo pasahitz okerra"
+  },
+
+  "NAVBAR": {
+    "LOGOUT": "Saioa itxi"
+  },
+
+  "ROLES": {
+    "GOD": "JAINKOA",
+    "ADMINISTRADOR": "ADMINISTRATZAILEA",
+    "PROFESOR": "IRAKASLEA",
+    "ALUMNO": "IKASLEA"
+  },
+
+  "GOD": {
+    "TITULO": "JAINKOA"
+  },
+
+  "ADMIN": {
+    "TITULO": "Administratzailea",
+    "BUSCADOR_PLACEHOLDER": "Bilatu izena, abizena edo IDa...",
+    "STATS": {
+      "PROFESORES": "Irakasleak",
+      "ALUMNOS": "Ikasleak",
+      "REUNIONES": "Gaurko bilerak"
+    },
+    "LISTADO": {
+      "PROFESORES": "Irakasleak",
+      "ALUMNOS": "Ikasleak"
+    },
+    "ACCIONES": {
+      "EDITAR": "Editatu",
+      "BORRAR": "Ezabatu",
+      "CANCELAR": "Utzi",
+      "ACTUALIZAR": "Eguneratu",
+      "CREAR_USUARIO": "Erabiltzailea sortu",
+      "CREAR": "Sortu"
+    },
+    "FORM": {
+      "TITULO_UPDATE": "Erabiltzailea eguneratu",
+      "TITULO_CREAR": "Erabiltzailea sortu",
+      "NOMBRE": "Izena",
+      "APELLIDOS": "Abizenak",
+      "EMAIL": "Posta elektronikoa",
+      "USUARIO": "Erabiltzailea",
+      "PASSWORD": "Pasahitza",
+      "TEL1": "1. telefonoa",
+      "TEL2": "2. telefonoa",
+      "DIRECCION": "Helbidea",
+      "URL_IMAGEN": "Irudiaren URLa",
+      "TIPO": "Mota",
+      "ERR_REQ": "Derrigorrezko eremua",
+      "ERR_EMAIL": "Email formatua ez da zuzena",
+      "ERR_TEL": "Telefono zenbakiaren formatua ez da zuzena"
+    },
+    "REUNIONES": {
+      "TITULO": "Bilerak",
+      "ESTADO": "Egoera",
+      "ASUNTO": "Gaia",
+      "PROFESOR": "Irakaslea",
+      "ALUMNO": "Ikaslea",
+      "LUGAR": "Lekua",
+      "FECHA": "Data",
+      "SIN_REUNIONES": "Ez dago bilerarik.",
+      "PAG_PRIMERA": "Lehena",
+      "PAG_ANTERIOR": "Aurrekoa",
+      "PAG_SIGUIENTE": "Hurrengoa",
+      "PAG_ULTIMA": "Azkena"
+    }
+  },
+
+  "ALUMNO_PORTAL": {
+    "TITULO_PAGINA": "Ikaslearen ataria",
+    "SUBTITULO": "Profilaren eta ordutegien kudeaketa",
+    "SECCION_INFO": "Nire informazioa",
+
+    "LABEL_USUARIO": "Erabiltzailea",
+    "LABEL_PASSWORD": "Pasahitza",
+    "LABEL_EMAIL": "Posta elektronikoa",
+    "LABEL_DNI": "NAN",
+    "LABEL_TELEFONOS": "Telefonoak",
+    "LABEL_DIRECCION": "Helbidea",
+
+    "HORARIO": {
+      "TITULO": "Ordutegia",
+      "HORA": "Ordua"
+    },
+
+    "REUNIONES": {
+      "TITULO": "Bilerak",
+      "ESTADO": "Egoera",
+      "ASUNTO": "Gaia",
+      "LUGAR": "Lekua",
+      "FECHA": "Data",
+      "SIN_REUNIONES": "Ez dago bilerarik."
+    }
+  },
+
+  "PROFESOR_PORTAL": {
+    "TITULO_PAGINA": "Irakasleen ataria",
+    "SUBTITULO": "Datu pertsonalak, bilerak eta ikastetxeak",
+    "SECCION_INFO": "Informazio pertsonala",
+
+    "BUSCADOR_PLACEHOLDER": "Bilatu irakasleak edo ikasleak...",
+    "OTROS_PROFESORES": "Beste irakasleak",
+    "ALUMNOS": "Ikasleak",
+    "DETALLES_CLICK": "Egin klik xehetasunak ikusteko",
+
+    "ACCIONES": {
+      "VER": "Ikusi",
+      "OCULTAR": "Ezkutatu",
+      "USER": "Erabiltzailea",
+      "TEL": "Telefonoa",
+      "EMAIL": "Emaila",
+      "DIR": "Helbidea"
+    },
+
+    "REUNIONES": {
+      "TITULO": "Bilerak",
+      "ESTADO": "Egoera",
+      "ASUNTO": "Gaia",
+      "LUGAR": "Lekua",
+      "FECHA": "Data",
+      "SIN_REUNIONES": "Ez dago bilerarik programatuta",
+
+      "BOTON_CREAR": "Bilera sortu",
+      "FORM_TITULO": "Bilera berria",
+
+      "LABEL_TITULO": "Izenburua",
+      "LABEL_ASUNTO": "Gaia",
+      "LABEL_ALUMNO": "Ikaslea",
+      "LABEL_FECHA": "Data eta ordua",
+      "LABEL_AULA": "Gela",
+      "LABEL_CENTRO": "Ikastetxea",
+
+      "SELECT_ALUMNO": "Hautatu ikasle bat",
+      "SELECT_CENTRO": "Hautatu ikastetxe bat",
+
+      "ERR_REQ": "Eremu hau derrigorrezkoa da",
+
+      "BTN_CANCELAR": "Utzi",
+      "BTN_CREAR": "Sortu"
+    },
+
+    "LISTADO_CENTROS": {
+      "TITULO": "Ikastetxeen zerrenda",
+      "FILTRO_TITULARIDAD": "Titulartasuna",
+      "FILTRO_TERRITORIO": "Lurraldea",
+      "FILTRO_MUNICIPIO": "Udalerria",
+
+      "TODAS": "Guztiak",
+      "TODOS": "Guztiak",
+
+      "RESULTADOS": "Emaitzak",
+      "CENTROS_MIN": "ikastetxe",
+
+      "TABLA_ID": "ID",
+      "TABLA_NOMBRE": "Izena",
+      "TABLA_PROVINCIA": "Probintzia",
+
+      "SIN_CENTROS": "Ez dago ikastetxerik",
+
+      "PAG_PRIMERA": "Lehena",
+      "PAG_ANTERIOR": "Aurrekoa",
+      "PAG_SIGUIENTE": "Hurrengoa",
+      "PAG_ULTIMA": "Azkena",
+
+      "PAGINA_LABEL": "Orrialdea",
+      "DE_LABEL": "-"
+    }
+  },
+
+  "CENTRO": {
+    "TITULO": "Ikastetxea",
+    "NOMBRE": "Izena",
+    "TITULARIDAD": "Titulartasuna",
+    "MUNICIPIO": "Udalerria",
+    "PROVINCIA": "Lurraldea",
+    "DIRECCION": "Helbidea",
+    "CP": "Posta-kodea",
+    "TELEFONO": "Telefonoa",
+    "ERROR_MAPA": "Ikastetxe honen koordenatuak ezin izan dira kargatu."
+  },
+  "DIAS": {
+  "LUNES": "Astelehena",
+  "MARTES": "Asteartea",
+  "MIERCOLES": "Asteazkena",
+  "JUEVES": "Osteguna",
+  "VIERNES": "Ostirala"
+}
+}

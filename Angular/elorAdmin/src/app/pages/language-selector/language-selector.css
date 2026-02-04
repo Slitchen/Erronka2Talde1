@@ -1,0 +1,27 @@
+.lang-selector {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.lang-selector button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+}
+
+
+.lang-selector button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+  font-weight: bold;
+}
+
+.lang-selector button:hover:not(.active) {
+  background-color: #f0f0f0;
+}

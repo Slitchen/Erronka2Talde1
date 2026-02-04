@@ -1,0 +1,272 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-xl-10">
+      <!-- ENCABEZADO -->
+      <div class="text-center mb-5 p-4 bg-white rounded-4 shadow-sm border">
+          <ng-container>
+             <img [src]="argazkia_url()" (error)="($any($event.target).src = 'ezezaguna.jpg')" class="img-fluid rounded-circle shadow mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+          </ng-container>
+        <h1 class="display-4 fw-bold text-primary mb-3">{{ 'GOD.TITULO' | translate }}</h1>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <div class="px-4 py-2 bg-info bg-opacity-10 rounded-pill border border-info border-opacity-25">
+            <span class="fw-bold text-info small text-uppercase">{{ 'ADMIN.STATS.PROFESORES' | translate }}: {{ totalProfesores() }}</span>
+          </div>
+          <div class="px-4 py-2 bg-success bg-opacity-10 rounded-pill border border-success border-opacity-25">
+            <span class="fw-bold text-success small text-uppercase">{{ 'ADMIN.STATS.ALUMNOS' | translate }}: {{ totalAlumnos() }}</span>
+          </div>
+          <div class="px-4 py-2 bg-warning bg-opacity-10 rounded-pill border border-warning border-opacity-25">
+            <span class="fw-bold text-dark small text-uppercase">{{ 'ADMIN.STATS.REUNIONES' | translate }}: {{ totalReunionesHoy() }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUSCADOR -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-7">
+          <div class="input-group shadow-sm">
+            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+            <input class="form-control border-start-0 py-2 shadow-none" type="text" [formControl]="filtroBusqueda"
+              [placeholder]="'ADMIN.BUSCADOR_PLACEHOLDER' | translate" />
+          </div>
+        </div>
+      </div>
+
+      <hr class="mb-5 opacity-25">
+
+      <!-- LISTADO DE PROFESORES CON BOTONES DE ACCION DE BORRAR Y EDITAR -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <h3 class="h4 text-secondary mb-0 fw-bold">{{ 'ADMIN.LISTADO.PROFESORES' | translate }}</h3>
+            <span class="badge bg-primary rounded-pill ms-2">{{ listadoProfesoresFiltrados().length }}</span>
+          </div>
+          <div class="list-group shadow-sm border-0">
+            @for(profesor of listadoProfesoresFiltrados(); track profesor){
+              <div class="list-group-item border-0 border-bottom bg-white p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="mb-1 fw-bold text-dark">{{ profesor.nombre }} {{ profesor.apellidos }}</h6>
+                    <small class="text-muted">@{{ profesor.username }}</small>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-outline-primary px-3 rounded-pill" (click)="updateUsuario(profesor)">{{ 'ADMIN.ACCIONES.EDITAR' | translate }}</button>
+                    <button class="btn btn-sm btn-outline-danger px-3 rounded-pill" (click)="borrarUsuario(profesor)">{{ 'ADMIN.ACCIONES.BORRAR' | translate }}</button>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- LISTADO DE ALUMNOS CON BOTONES DE ACCION DE BORRAR Y EDITAR -->
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <h3 class="h4 text-secondary mb-0 fw-bold">{{ 'ADMIN.LISTADO.ALUMNOS' | translate }}</h3>
+            <span class="badge bg-success rounded-pill ms-2">{{ listadoAlumnosFiltrados().length }}</span>
+          </div>
+          <div class="list-group shadow-sm border-0">
+            @for(alumno of listadoAlumnosFiltrados(); track alumno){
+              <div class="list-group-item border-0 border-bottom bg-white p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="mb-1 fw-bold text-dark">{{ alumno.nombre }} {{ alumno.apellidos }}</h6>
+                    <small class="text-muted">@{{ alumno.username }}</small>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-outline-primary px-3 rounded-pill" (click)="updateUsuario(alumno)">{{ 'ADMIN.ACCIONES.EDITAR' | translate }}</button>
+                    <button class="btn btn-sm btn-outline-danger px-3 rounded-pill" (click)="borrarUsuario(alumno)">{{ 'ADMIN.ACCIONES.BORRAR' | translate }}</button>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- LISTADO DE ADMINISTRADORES CON BOTONES DE ACCION DE BORRAR Y EDITAR -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="d-flex align-items-center mb-3">
+            <h3 class="h4 text-secondary mb-0 fw-bold">{{ 'ADMIN.LISTADO.ADMINISTRADORES' | translate }}</h3>
+            <span class="badge bg-dark rounded-pill ms-2">{{ listadoAdministradoresFiltrados().length }}</span>
+          </div>
+          <div class="list-group shadow-sm border-0">
+            @for(administrador of listadoAdministradoresFiltrados(); track administrador){
+              <div class="list-group-item border-0 border-bottom bg-white p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="mb-1 fw-bold text-dark">{{ administrador.nombre }} {{ administrador.apellidos }}</h6>
+                    <small class="text-muted">{{ 'ADMIN.FORM.USUARIO' | translate }}: {{ administrador.username }}</small>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-outline-primary px-3 rounded-pill" (click)="updateUsuario(administrador)">{{ 'ADMIN.ACCIONES.EDITAR' | translate }}</button>
+                    <button class="btn btn-sm btn-outline-danger px-3 rounded-pill" (click)="borrarUsuario(administrador)">{{ 'ADMIN.ACCIONES.BORRAR' | translate }}</button>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULARIO DE ACTUALIZACION DE USUARIO -->
+      @if(editId() !== null){
+        <div class="card p-4 mb-5 shadow border-0 border-start border-4 border-primary rounded-4">
+          <h4 class="mb-4 text-primary fw-bold">{{ 'ADMIN.FORM.TITULO_UPDATE' | translate }}</h4>
+          <form [formGroup]="updateForm" (ngSubmit)="guardarUpdate()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">{{ 'ADMIN.FORM.NOMBRE' | translate }}</label>
+                <input type="text" class="form-control" formControlName="nombre" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">{{ 'ADMIN.FORM.APELLIDOS' | translate }}</label>
+                <input type="text" class="form-control" formControlName="apellidos" />
+              </div>
+              <div class="col-md-12">
+                <label class="form-label small fw-bold">{{ 'ADMIN.FORM.EMAIL' | translate }}</label>
+                <input type="email" class="form-control" formControlName="email" />
+                @if(updateForm.get('email')?.errors?.['email']){
+                  <small class="text-danger d-block mt-1">{{ 'ADMIN.FORM.ERR_EMAIL' | translate }}</small>
+                }   
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">{{ 'ADMIN.FORM.TEL1' | translate }}</label>
+                <input type="tel" class="form-control" formControlName="telefono1" />
+                @if(updateForm.get('telefono1')?.errors?.['pattern']){
+                  <small class="text-danger d-block mt-1">{{ 'ADMIN.FORM.ERR_TEL' | translate }}</small>
+                }
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">{{ 'ADMIN.FORM.TEL2' | translate }}</label>
+                <input type="tel" class="form-control" formControlName="telefono2" />
+                @if(updateForm.get('telefono2')?.errors?.['pattern']){
+                  <small class="text-danger d-block mt-1">{{ 'ADMIN.FORM.ERR_TEL' | translate }}</small>
+                }
+              </div>
+              <div class="col-md-12">
+                <label class="form-label small fw-bold">{{ 'ADMIN.FORM.DIRECCION' | translate }}</label>
+                <input type="text" class="form-control" formControlName="direccion" />
+              </div>
+              <div class="col-md-12">
+                <label class="form-label small fw-bold">{{ 'ADMIN.FORM.URL_IMAGEN' | translate }}</label>
+                <input type="text" class="form-control" formControlName="argazkia_url" />
+              </div>
+            </div>
+            <div class="mt-4 d-flex gap-2 justify-content-end">
+              <button class="btn btn-light rounded-pill px-4" type="button" (click)="cancelarUpdate()">{{ 'ADMIN.ACCIONES.CANCELAR' | translate }}</button>
+              <button class="btn btn-success rounded-pill px-4 shadow-sm" type="submit">{{ 'ADMIN.ACCIONES.ACTUALIZAR' | translate }}</button>
+            </div>
+          </form>
+        </div>
+      }
+
+      <!-- FORMULARIO DE CREACION DE USUARIO -->
+      <div class="mb-5 text-center">
+        @if(!showCreateForm()){
+          <button class="btn btn-primary btn-lg rounded-pill shadow px-3 mb-4" (click)="mostrarCrearUsuario()">
+            <i class="bi bi-person-plus-fill me-2"></i><span>{{ 'ADMIN.ACCIONES.CREAR_USUARIO' | translate }}</span>
+          </button>
+        }
+
+        @if(showCreateForm()){
+          <div class="card p-4 shadow border-0 border-start border-4 border-success rounded-4 text-start">
+            <h4 class="mb-4 text-success fw-bold">{{ 'ADMIN.FORM.TITULO_CREAR' | translate }}</h4>
+            <form [formGroup]="createForm" (ngSubmit)="crearUsuario()">
+              <div class="row g-3">
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.NOMBRE' | translate }}</label>
+                  <input type="text" class="form-control" formControlName="nuevoNombre" />
+                  @if(createForm.get('nuevoNombre')?.errors?.['required']){
+                    <small class="text-danger">{{ 'ADMIN.FORM.ERR_REQ' | translate }}</small>
+                  }
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.APELLIDOS' | translate }}</label>
+                  <input type="text" class="form-control" formControlName="nuevoApellidos" />
+                  @if(createForm.get('nuevoApellidos')?.errors?.['required']){
+                    <small class="text-danger">{{ 'ADMIN.FORM.ERR_REQ' | translate }}</small>
+                  }
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.EMAIL' | translate }}</label>
+                  <input type="email" class="form-control" formControlName="nuevoEmail" />
+                  @if(createForm.get('nuevoEmail')?.errors?.['required']){
+                    <small class="text-danger">{{ 'ADMIN.FORM.ERR_REQ' | translate }}</small>
+                  }
+                  @if(createForm.get('nuevoEmail')?.errors?.['email']){
+                    <small class="text-danger">{{ 'ADMIN.FORM.ERR_EMAIL' | translate }}</small>
+                  }
+                  
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.USUARIO' | translate }}</label>
+                  <input type="text" class="form-control" formControlName="nuevoUsername" />
+                  @if(createForm.get('nuevoUsername')?.errors?.['required']){
+                    <small class="text-danger">{{ 'ADMIN.FORM.ERR_REQ' | translate }}</small>
+                  }
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.PASSWORD' | translate }}</label>
+                  <input type="text" class="form-control" formControlName="nuevoPassword" />
+                  @if(createForm.get('nuevoPassword')?.errors?.['required']){
+                    <small class="text-danger">{{ 'ADMIN.FORM.ERR_REQ' | translate }}</small>
+                  }
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.TEL1' | translate }}</label>
+                  <input type="tel" class="form-control" formControlName="nuevoTelefono1" />
+                  @if(createForm.get('nuevoTelefono1')?.errors?.['pattern']){
+                    <small class="text-danger">{{ 'ADMIN.FORM.ERR_TEL' | translate }}</small>
+                  }
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.TEL2' | translate }}</label>
+                  <input type="tel" class="form-control" formControlName="nuevoTelefono2" />
+                  @if(createForm.get('nuevoTelefono2')?.errors?.['pattern']){
+                    <small class="text-danger">{{ 'ADMIN.FORM.ERR_TEL' | translate }}</small>
+                  }
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.DIRECCION' | translate }}</label>
+                  <input type="text" class="form-control" formControlName="nuevaDireccion" />
+                </div>
+
+                <div class="col-md-12 mt-3">
+                  <label class="form-label small fw-bold">{{ 'ADMIN.FORM.TIPO' | translate }}</label><br>
+                  <div class="d-flex gap-3 bg-light p-2 rounded border">
+                    <div class="form-check form-check-inline mb-0">
+                      <input class="form-check-input" type="radio" formControlName="nuevoTipoId" [value]="3" id="tipoProfesor" />
+                      <label class="form-check-label" for="tipoProfesor">{{ 'ROLES.PROFESOR' | translate }}</label>
+                    </div>
+                    <div class="form-check form-check-inline mb-0">
+                      <input class="form-check-input" type="radio" formControlName="nuevoTipoId" [value]="4" id="tipoAlumno" />
+                      <label class="form-check-label" for="tipoAlumno">{{ 'ROLES.ALUMNO' | translate }}</label>
+                    </div>
+                    <div class="form-check form-check-inline mb-0">
+                      <input class="form-check-input" type="radio" formControlName="nuevoTipoId" [value]="2" id="tipoAdministrador" />
+                      <label class="form-check-label" for="tipoAdministrador">{{ 'ROLES.ADMINISTRADOR' | translate }}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 d-flex gap-2 justify-content-end">
+                <button class="btn btn-secondary rounded-pill px-4" type="button" (click)="cancelarCrear()">{{ 'ADMIN.ACCIONES.CANCELAR' | translate }}</button>
+                <button class="btn btn-success rounded-pill px-4 shadow-sm" type="submit">{{ 'ADMIN.ACCIONES.CREAR' | translate }}</button>
+              </div>
+            </form>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</div>

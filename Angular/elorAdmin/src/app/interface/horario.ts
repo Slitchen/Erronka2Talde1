@@ -1,4 +1,7 @@
 export interface Horario {
+    modulo_nombre: string;
+    profesor_apellidos: string;
+    profesor_nombre: string;
     id: number;
     dia: DiaSemana;
     hora: number;
