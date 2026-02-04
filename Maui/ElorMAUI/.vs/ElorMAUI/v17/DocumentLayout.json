@@ -1,0 +1,279 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Maui\\ElorMAUI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\models\\ikastetxea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\models\\ikastetxea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\services\\airqualityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\services\\airqualityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\services\\navmenuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\services\\navmenuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\services\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\services\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\services\\ikastetxeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\services\\ikastetxeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\services\\ikastetxeapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\services\\ikastetxeapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\models\\weatherresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\models\\weatherresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\models\\forecastresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\models\\forecastresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\models\\airqualityresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\models\\airqualityresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\components\\pages\\xehetasunak.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\components\\pages\\xehetasunak.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeatherService.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\WeatherService.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Services\\WeatherService.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\WeatherService.cs",
+              "RelativeToolTip": "ElorMAUI\\Services\\WeatherService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:09:54.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SessionService.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\SessionService.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Services\\SessionService.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\SessionService.cs",
+              "RelativeToolTip": "ElorMAUI\\Services\\SessionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:09:40.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NavMenuService.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\NavMenuService.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Services\\NavMenuService.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\NavMenuService.cs",
+              "RelativeToolTip": "ElorMAUI\\Services\\NavMenuService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wBoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:09:26.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginService.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\LoginService.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Services\\LoginService.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\LoginService.cs",
+              "RelativeToolTip": "ElorMAUI\\Services\\LoginService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:09:16.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IkastetxeService.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\IkastetxeService.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Services\\IkastetxeService.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\IkastetxeService.cs",
+              "RelativeToolTip": "ElorMAUI\\Services\\IkastetxeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:09:10.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IkastetxeApiService.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\IkastetxeApiService.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Services\\IkastetxeApiService.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\IkastetxeApiService.cs",
+              "RelativeToolTip": "ElorMAUI\\Services\\IkastetxeApiService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:09:02.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AirQualityService.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\AirQualityService.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Services\\AirQualityService.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Services\\AirQualityService.cs",
+              "RelativeToolTip": "ElorMAUI\\Services\\AirQualityService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:08:53.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WeatherResponse.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\WeatherResponse.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Models\\WeatherResponse.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\WeatherResponse.cs",
+              "RelativeToolTip": "ElorMAUI\\Models\\WeatherResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:08:47.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Models\\User.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\User.cs",
+              "RelativeToolTip": "ElorMAUI\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:08:44.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ikastetxea.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\Ikastetxea.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Models\\Ikastetxea.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\Ikastetxea.cs",
+              "RelativeToolTip": "ElorMAUI\\Models\\Ikastetxea.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:08:09.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ForecastResponse.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\ForecastResponse.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Models\\ForecastResponse.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\ForecastResponse.cs",
+              "RelativeToolTip": "ElorMAUI\\Models\\ForecastResponse.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:07:44.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AirQualityResponse.cs",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\AirQualityResponse.cs",
+              "RelativeDocumentMoniker": "ElorMAUI\\Models\\AirQualityResponse.cs",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Models\\AirQualityResponse.cs",
+              "RelativeToolTip": "ElorMAUI\\Models\\AirQualityResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T09:06:59.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Xehetasunak.razor",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Components\\Pages\\Xehetasunak.razor",
+              "RelativeDocumentMoniker": "ElorMAUI\\Components\\Pages\\Xehetasunak.razor",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Components\\Pages\\Xehetasunak.razor",
+              "RelativeToolTip": "ElorMAUI\\Components\\Pages\\Xehetasunak.razor",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-04T09:06:51.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Weather.razor",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Components\\Pages\\Weather.razor",
+              "RelativeDocumentMoniker": "ElorMAUI\\Components\\Pages\\Weather.razor",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Components\\Pages\\Weather.razor",
+              "RelativeToolTip": "ElorMAUI\\Components\\Pages\\Weather.razor",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAE0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-04T09:06:31.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Login.razor",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "ElorMAUI\\Components\\Pages\\Login.razor",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "ElorMAUI\\Components\\Pages\\Login.razor",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAC8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-04T07:06:52.706Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

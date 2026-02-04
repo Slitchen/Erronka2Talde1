@@ -1,0 +1,160 @@
+﻿@page "/xehetasunak/{Id:long}"
+@using ElorMAUI.Models
+@using Microsoft.Maui.Controls.Maps
+@using Microsoft.Maui.Maps
+@using ElorMAUI.Components.Pages
+@using ElorMAUI.Services
+@inject NavigationManager navManager
+@inject IkastetxeService.IkastetxeService ikastetxeService
+@inject IJSRuntime JS
+@inject WeatherService weatherService
+@inject NavMenuService NavService
+
+<h1 style="color: blueviolet">Xehetasunak</h1>
+
+@if (ikastetxea != null)
+{
+    <div class="card p-4 mb-3" style="max-width:600px;">
+        <h4>@ikastetxea?.Izena</h4>
+
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.Mota))
+        {
+            <p><strong>🏫 Mota:</strong> @ikastetxea?.Mota?.ToLower()</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.Lurraldea))
+        {
+            <p><strong>🌍 Lurraldea:</strong> @ikastetxea?.Lurraldea?.ToLower()</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.Udalerria))
+        {
+            <p><strong>🏘️ Udalerria:</strong> @ikastetxea?.Udalerria?.ToLower()</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.Orrialdea))
+        {
+            <p>
+                <strong>🌐 Webgunea:</strong>
+                <a href="@ikastetxea?.Orrialdea" target="_blank">
+                    @ikastetxea?.Orrialdea
+                </a>
+            </p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.Email))
+        {
+            <p><strong>📧 Helbide elektronikoa:</strong> @ikastetxea?.Email?.ToLower()</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.Telefono?.ToString()))
+        {
+            <p><strong>📞 Telefonoa:</strong> @ikastetxea?.Telefono</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.NumFax?.ToString()))
+        {
+            <p><strong>📠 Faxa:</strong> @ikastetxea?.NumFax</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.Direccion))
+        {
+            <p><strong>🏠 Helbidea:</strong> @ikastetxea?.Direccion?.ToLower()</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ikastetxea.CodigoPostal?.ToString()))
+        {
+            <p><strong>📮 Posta-kodea:</strong> @ikastetxea?.CodigoPostal</p>
+        }
+    </div>
+
+    @if (coordenadasValidas)
+    {
+        <div id="map"
+             style="height:300px; width:60%; border:1px solid gray; margin-bottom: 20px">
+        </div>
+    }
+    else
+    {
+        <p style="color:red; font-weight:bold;">
+            ❌ Ezin izan dira koordenatuak behar bezala kargatu.
+        </p>
+    }
+}
+else
+{
+    <p>Ez da aurkitu</p>
+}
+
+@code {
+    [Parameter]
+    public long? Id { get; set; }
+
+    private Ikastetxea? ikastetxea;
+    private WeatherResponse? weather;
+    private ForecastResponse? forecasts;
+    public static Xehetasunak? Instance;
+
+    private bool coordenadasValidas = true;
+
+    protected override void OnInitialized()
+    {
+        NavService.AddNavItem("Hasiera", "/home");
+        NavService.RemoveNavItemsStartingWith("/crud");
+
+        Instance = this;
+
+        if (Id.HasValue && ikastetxeService.Ikastetxeak != null)
+        {
+            ikastetxea = ikastetxeService.Ikastetxeak
+                .FirstOrDefault(i => i.Id == Id.Value);
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && ikastetxea != null)
+        {
+            var (lat, lon, valid) =
+                FixCoordinates(ikastetxea.Latitud, ikastetxea.Longitud);
+
+            coordenadasValidas = valid;
+
+            if (!valid)
+            {
+                StateHasChanged();
+                return;
+            }
+
+            await JS.InvokeVoidAsync(
+                "initMap",
+                lon,
+                lat,
+                ikastetxea.Id,
+                DotNetObjectReference.Create(this)
+            );
+        }
+    }
+
+    private (double lat, double lon, bool valid)
+        FixCoordinates(double? lat, double? lon)
+    {
+        if (lat == null || lon == null)
+            return (0, 0, false);
+
+        double latitude = lat.Value;
+        double longitude = lon.Value;
+
+        if (latitude == 0 || longitude == 0)
+            return (0, 0, false);
+
+        bool latValid = latitude >= -90 && latitude <= 90;
+        bool lonValid = longitude >= -180 && longitude <= 180;
+
+        if (!latValid && lonValid)
+            return (longitude, latitude, true);
+
+        if (latValid && lonValid)
+            return (latitude, longitude, true);
+
+        return (0, 0, false);
+    }
+
+    [JSInvokable]
+    public void GoToWeather(long id)
+    {
+        navManager.NavigateTo($"/weather/{id}");
+    }
+}

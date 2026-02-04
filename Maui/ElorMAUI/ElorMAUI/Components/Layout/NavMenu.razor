@@ -1,0 +1,32 @@
+﻿@using ElorMAUI.Services
+@inject NavMenuService NavService
+
+<div class="nav-menu">
+    <div class="top-row ps-3 navbar navbar-dark">
+        <div class="container-fluid">
+            <p class="navbar-brand">Ikastetxeak</p>
+        </div>
+    </div>
+
+    <nav class="flex-column nav-scrollable">
+        <!-- enlaces dinámicos -->
+        @foreach (var item in NavService.Items)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="@item.Href">@item.Title</NavLink>
+            </div>
+        }
+    </nav>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        NavService.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        NavService.OnChange -= StateHasChanged;
+    }
+}
