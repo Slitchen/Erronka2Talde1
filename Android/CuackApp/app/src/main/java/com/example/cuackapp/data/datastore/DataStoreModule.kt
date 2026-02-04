@@ -15,6 +15,8 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 object DataStoreModule {
+    //INSTANCIA UNICA DE DATASTORE PARA PREFERENCIAS
+    // SINGLETON = instancia unica en la app
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 

@@ -30,8 +30,9 @@
     <color name="slate_900">#0F172A</color>
 
     <!-- Status Colors -->
-    <color name="green_500">#22C55E</color>
-    <color name="red_500">#EF4444</color>
+    <color name="confirm">#69C784</color>
+    <color name="canceled">#A64D4D</color>
+    <color name="conflict">#CAB254</color>
 
     <!-- Common -->
     <color name="white">#FFFFFF</color>

@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cuackapp.data.api.ApiService
-import com.example.cuackapp.model.UserModel.User
+import com.example.cuackapp.model.userModel.User
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -27,6 +27,7 @@ class LoginViewModel @Inject constructor(private val apiService: ApiService) : V
                     apiService.getLogin(username, password)
                 }
                 Log.i("API_SUCCESS", "Usuario obtenido: $result")
+                Log.i("API_SUCCESS", "pfp: ${result.profilePicture}")
                 _user.value = result
 
             }catch (e: Exception){

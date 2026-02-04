@@ -1,29 +1,36 @@
-package com.example.cuackapp.model.UserModel
+package com.example.cuackapp.model.userModel
 
 import com.google.gson.annotations.SerializedName
 
 
 data class User(
-    val id: Int,
-    val email: String,
-    val username: String,
-    val password: String,
-    val nombre: String,
-    val apellidos: String,
-    val dni: String,
-    val direccion: String,
-    val telefono1: String,
-    val telefono2: String,
+    // SERIALIZEDNAME = el tag que recibimos de la api en cada variable, la cual podemos cambiar para gestion local
+
+    var id: Int,
+    var email: String,
+    var username: String,
+    var password: String,
+    var nombre: String,
+    var apellidos: String,
+    var dni: String,
+    var direccion: String,
+    var telefono1: String,
+    var telefono2: String,
+    @SerializedName("argazkiaUrl")var profilePicture: String,
+    var cicloId: Int,
+    var ciclo: String,
+    var curso: String,
+
 
     @SerializedName("tipos")
-    val type: UserType,
+    var type: UserType,
 
-    val createdAt: String,
-    val updatedAt: String
+    var createdAt: String,
+    var updatedAt: String
 )
 
 data class UserType(
-    val id: Int,
-    val name: String,
-    val nameEu: String
+    var id: Int,
+    var name: String,
+    var nameEu: String
 )

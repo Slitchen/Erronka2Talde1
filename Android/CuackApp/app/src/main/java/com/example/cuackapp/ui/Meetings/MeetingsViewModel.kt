@@ -4,8 +4,9 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cuackapp.data.api.ApiService
-import com.example.cuackapp.model.UserModel.User
-import com.example.cuackapp.model.scheduleModel.Schedule
+import com.example.cuackapp.model.meetingModel.Meeting
+import com.example.cuackapp.model.userModel.User
+import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,33 +18,87 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MeetingsViewModel @Inject constructor(private val apiService: ApiService) : ViewModel() {
-    private val _schedules = MutableStateFlow<List<Schedule>>(emptyList())
-    val schedules: StateFlow<List<Schedule>> = _schedules
-
-    // Prioridad de días para el ordenamiento
-    private val diasPrioridad = mapOf(
-        "LUNES" to 1, "MARTES" to 2, "MIERCOLES" to 3, "JUEVES" to 4, "VIERNES" to 5
-    )
+    private val _meetings = MutableStateFlow<List<Meeting>>(emptyList())
+    val meetings: StateFlow<List<Meeting>> = _meetings
 
 
-    fun getSchedules(currentUser: User) {
+    fun getMeetings(currentUser: User) {
         viewModelScope.launch {
             try {
-                val result = withContext(Dispatchers.IO) {
-                    apiService.getHorarios(currentUser.id)
-                }
-                Log.i("API_SUCCESS", "Horarios obtenidos: $result")
+                val fechas = listOf("2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30")
+                val result = when(currentUser.type.id) {
+                    //profesor
+                    3 -> withContext(Dispatchers.IO) {
+                        fechas.flatMap { fecha ->
+                            try {
+                                apiService.getReunionesProfe(currentUser.id, fecha)
+                            } catch (e: Exception) {
+                                Log.e("API_ERROR", "Error en fecha $fecha: ${e.message}")
+                                emptyList() // Si una fecha falla (ej. el BEGIN_OBJECT), devolvemos lista vacía y seguimos
+                            }
+                        }
+                    }
+                    //alumno
+                    4 ->  withContext(Dispatchers.IO) {
+                        fechas.flatMap { fecha ->
+                            try {
+                                apiService.getReunionesAlumno(currentUser.id, fecha)
+                            } catch (e: Exception) {
+                                Log.e("API_ERROR", "Error en fecha $fecha: ${e.message}")
+                                emptyList() // Si una fecha falla (ej. el BEGIN_OBJECT), devolvemos lista vacía y seguimos
+                            }
+                        }
+                    }
 
-                // Ordenar: 1º por Día, 2º por Hora
-                val sortedList = result.sortedWith(
-                    compareBy<Schedule> { diasPrioridad[it.day.toString().uppercase()] ?: 99 }
-                        .thenBy { it.hour }
-                )
-                Log.i("API_SUCCESS", "Horarios ordenados: $sortedList")
-                _schedules.value = sortedList
+                    else ->emptyList()
+                } as List<Meeting>
+
+                Log.i("API_SUCCESS", "Reuniones obtenidas: $result")
+                Log.i("API_SUCCESS", "date : ${result.get(0).scheduled_date}")
+                Log.i("API_SUCCESS", "state : ${result.count()}")
+
+
+
+
+                _meetings.value = result
 
             } catch (e: Exception) {
                 Log.e("API_ERROR", "Error: ${e.message}")
+            }
+        }
+    }
+    //convierte una reunion en un json y lo manda a la api para crearla en la bbdd
+    fun createMeeting(meeting: Meeting) {
+        viewModelScope.launch {
+            try {
+                Log.i("API_SUCCESS", "json meeting: ${Gson().toJson(meeting)}")
+                val response = withContext(Dispatchers.IO) {
+                    apiService.postMeeting(meeting)
+                }
+
+
+                Log.i("API_SUCCESS", "Reunión creada: $response")
+            } catch (e: Exception) {
+                Log.e("API_ERROR", "Error al crear reunión: ${e.message}")
+            }
+        }
+
+    }
+    fun updateMeeting(meeting: Meeting, currentUser: User) {
+        viewModelScope.launch {
+            try {
+                val body = mapOf("estado" to meeting.state)
+                Log.i("API_SUCCESS", "json meeting: ${Gson().toJson(body)}")
+                Log.i("API_SUCCESS", "json meeting: ${meeting.id}")
+                val response = withContext(Dispatchers.IO) {
+                    apiService.putMeeting(meeting.id, body)
+                }
+                if (response.isSuccessful) {
+                    getMeetings(currentUser)
+                }
+
+            } catch (e: Exception) {
+                Log.e("API_ERROR", "Error al actualizar reunión: ${e.message}")
             }
         }
     }

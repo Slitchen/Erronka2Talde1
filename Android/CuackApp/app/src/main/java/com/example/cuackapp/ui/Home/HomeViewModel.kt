@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cuackapp.data.api.ApiService
-import com.example.cuackapp.model.UserModel.User
+import com.example.cuackapp.model.userModel.User
 import com.example.cuackapp.model.scheduleModel.Schedule
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -28,12 +28,24 @@ class HomeViewModel @Inject constructor(private val apiService: ApiService) : Vi
     )
 
 
+    //Obtener horarios según el tipo de usuario
     fun getSchedules(currentUser: User) {
         viewModelScope.launch {
             try {
-                val result = withContext(Dispatchers.IO) {
-                    apiService.getHorarios(currentUser.id)
-                }
+                val result = when(currentUser.type.id) {
+                    //profesor
+                    3 -> withContext(Dispatchers.IO) {
+                        apiService.getHorariosProfesor(currentUser.id)
+                    }
+                    //alumno
+                    4 ->  withContext(Dispatchers.IO) {
+                            apiService.getHorariosAlumno(currentUser.id)
+                    }
+
+                    else ->emptyList()
+                } as List<Schedule>
+
+
                 Log.i("API_SUCCESS", "Horarios obtenidos: $result")
 
                 // Ordenar: 1º por Día, 2º por Hora

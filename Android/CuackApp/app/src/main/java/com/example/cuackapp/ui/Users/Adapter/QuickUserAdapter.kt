@@ -10,10 +10,10 @@ import com.example.cuackapp.R
 import com.example.cuackapp.model.userModel.User
 
 
-class usersAdapter(
+class quickAccesAdapter(
     private var users: MutableList<User>,
     private val onUserClick: (User) -> Unit
-) : RecyclerView.Adapter<usersAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<quickAccesAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivAvatar: ImageView = view.findViewById(R.id.ivAvatar)
@@ -31,8 +31,6 @@ class usersAdapter(
         val user = users[position]
         holder.tvUsername.text = user.username
         holder.tvRole.text = user.type.name
-        holder.ivAvatar.setImageResource(R.drawable.cuack_logo)
-
 
         holder.itemView.setOnClickListener { onUserClick(user) }
     }

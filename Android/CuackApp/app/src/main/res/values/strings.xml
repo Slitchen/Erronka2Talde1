@@ -1,68 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CUACK</string>
+    <string name="app_name" translatable="false">CUACK</string>
 
     <string name="users">Users</string>
     <string name="meetings">Meetings</string>
 
     <!-- Login Screen -->
-    <string name="cuack_logo">CUACK Logo</string>
+    <string name="cuack_logo" translatable="false">CUACK Logo</string>
     <string name="welcome_back">Welcome Back</string>
-    <string name="ready_to_code">Ready to code and connect?</string>
-    <string name="email_address">Email Address</string>
-    <string name="email_hint">dev@cuack.io</string>
+    <string name="username">username</string>
     <string name="password">Password</string>
-    <string name="password_hint">••••••••</string>
-    <string name="forgot">Forgot?</string>
-    <string name="log_in">Log In</string>
-    <string name="or_login_with">or login with</string>
-    <string name="google_login">Login with Google</string>
-    <string name="github_login">Login with GitHub</string>
-    <string name="new_to_pond">New to the pond?</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="password_hint" translatable="false">••••••••</string>
+    <string name="log_in" translatable="false">Log In</string>
 
     <!-- Schedule Screen -->
-    <string name="welcome_user">Welcome back, User!</string>
-    <string name="system_greet">system.greet(\"user\");</string>
-    <string name="happening_now">Happening Now</string>
+    <string name="welcome_user">Welcome back</string>
     <string name="schedule">Schedule</string>
-    <string name="network">Network</string>
-    <string name="chat">Chat</string>
-    <string name="profile">Profile</string>
+    <string name="module_placeholder">Module</string>
 
     <!-- Search Screen -->
     <string name="search">Search</string>
-    <string name="cuack_network">CUACK Network</string>
     <string name="search_hint">Find other users</string>
-    <string name="all_users">All Users</string>
-    <string name="fullstack">Fullstack</string>
-    <string name="frontend">Frontend</string>
-    <string name="mobile">Mobile</string>
-    <string name="ui_ux">UI/UX</string>
-    <string name="suggested_for_you">Suggested for you</string>
-    <string name="see_all">See all</string>
-    <string name="follow">Follow</string>
-    <string name="connect">Connect</string>
-    <string name="recent_searches">Recent Searches</string>
-    <string name="clear">Clear</string>
-    <string name="popular_interests">Popular Interests</string>
     <string name="home">Home</string>
-    <string name="explore">Explore</string>
-    <string name="messages">Messages</string>
-
+    <string name="work_schedule">WORK SCHEDULE</string>
+    <string name="quick_access">QUICK ACCESS</string>
     <!-- Profile Screen -->
 
-    <string name="senior_developer">Senior Developer</string>
-    <string name="followers">Followers</string>
-    <string name="following">Following</string>
-    <string name="projects">Projects</string>
-    <string name="bio">Bio</string>
-    <string name="stack_skills">Stack &amp; Skills</string>
-    <string name="view_all">View All</string>
-    <string name="recent_activity">Recent Activity</string>
-    <string name="chats">Chats</string>
-    <string name="back">Back</string>
+    <string name="application_settings">APPLICATION SETTINGS</string>
+    <string name="toggle_screen_mode">Toggle Dark Mode</string>
+    <string name="language">Language</string>
 
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_meeting">Create new Meeting</string>
+    <string name="meeting_at">Meeting At:</string>
+    <string name="date">Date</string>
+    <string name="hour">Hour</string>
+    <string name="user">User</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="create">Create</string>
+    <string name="accept">Accept</string>
+    <string name="decline">decline</string>
+    <string name="or">OR</string>
+
 </resources>
