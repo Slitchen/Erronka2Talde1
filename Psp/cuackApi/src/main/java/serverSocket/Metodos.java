@@ -461,8 +461,8 @@ public class Metodos {
 		try {
 
 			String hql = "SELECT DISTINCT u " + "FROM Horarios h " + "JOIN h.modulos m " + "JOIN Matriculaciones mat "
-					+ "  ON mat.ciclos.id = m.ciclos.id " + "  AND mat.curso = m.curso " + "JOIN mat.users u "
-					+ "WHERE h.users.id = :id " + "  AND mat.curso = :curso";
+					+ "ON mat.ciclos.id = m.ciclos.id " + "AND mat.curso = m.curso " + "JOIN mat.users u "
+					+ "WHERE h.users.id = :id " + "AND mat.curso = :curso";
 
 			Query q = saioa.createQuery(hql);
 			q.setParameter("id", irakasleId);
@@ -520,8 +520,8 @@ public class Metodos {
 		try {
 
 			String hql = "SELECT DISTINCT u " + "FROM Horarios h " + "JOIN h.modulos m " + "JOIN Matriculaciones mat "
-					+ "  ON mat.ciclos.id = m.ciclos.id " + "JOIN mat.users u " + "WHERE h.users.id = :id "
-					+ "  AND mat.ciclos.id = :idCiclo";
+					+ "ON mat.ciclos.id = m.ciclos.id " + "JOIN mat.users u " + "WHERE h.users.id = :id "
+					+ "AND mat.ciclos.id = :idCiclo";
 
 			Query q = saioa.createQuery(hql);
 			q.setParameter("id", irakasleId);
