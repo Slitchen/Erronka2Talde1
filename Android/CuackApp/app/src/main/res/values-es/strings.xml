@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="users">Usuarios</string>
+    <string name="meetings">Reuniones</string>
+    <string name="welcome_back">Bienvenido</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="welcome_user">Bienvenido</string>
+    <string name="schedule">Horario</string>
+    <string name="module_placeholder">Asignatura</string>
+    <string name="search">Buscar</string>
+    <string name="search_hint">Encuentra otros usuarios</string>
+    <string name="home">Inicio</string>
+    <string name="work_schedule">HORARIO DE TRABAJO</string>
+    <string name="quick_access">ACCESO RÁPIDO</string>
+    <string name="application_settings">CONFIGURACIÓN DE LA APLICACIÓN</string>
+    <string name="toggle_screen_mode">Alternar el Modo Oscuro</string>
+    <string name="language">Idioma</string>
+    <string name="create_meeting">Crear nueva reunión</string>
+    <string name="meeting_at">Reunion en:</string>
+    <string name="date">Fecha</string>
+    <string name="hour">Hora</string>
+    <string name="user">Usuario</string>
+    <string name="title">Titulo</string>
+    <string name="description">Asunto</string>
+    <string name="create">Crear</string>
+    <string name="accept">Aceptar</string>
+    <string name="decline">Denegar</string>
+    <string name="or">O</string>
+</resources>

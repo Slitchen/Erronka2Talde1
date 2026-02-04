@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">CUACK</string>
+
+    <string name="users">Users</string>
+    <string name="meetings">Meetings</string>
+
+    <!-- Login Screen -->
+    <string name="cuack_logo" translatable="false">CUACK Logo</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="username">username</string>
+    <string name="password">Password</string>
+    <string name="password_hint" translatable="false">••••••••</string>
+    <string name="log_in" translatable="false">Log In</string>
+
+    <!-- Schedule Screen -->
+    <string name="welcome_user">Welcome back</string>
+    <string name="schedule">Schedule</string>
+    <string name="module_placeholder">Module</string>
+
+    <!-- Search Screen -->
+    <string name="search">Search</string>
+    <string name="search_hint">Find other users</string>
+    <string name="home">Home</string>
+    <string name="work_schedule">WORK SCHEDULE</string>
+    <string name="quick_access">QUICK ACCESS</string>
+    <!-- Profile Screen -->
+
+    <string name="application_settings">APPLICATION SETTINGS</string>
+    <string name="toggle_screen_mode">Toggle Dark Mode</string>
+    <string name="language">Language</string>
+
+
+    <string name="create_meeting">Create new Meeting</string>
+    <string name="meeting_at">Meeting At:</string>
+    <string name="date">Date</string>
+    <string name="hour">Hour</string>
+    <string name="user">User</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="create">Create</string>
+    <string name="accept">Accept</string>
+    <string name="decline">decline</string>
+    <string name="or">OR</string>
+
+</resources>

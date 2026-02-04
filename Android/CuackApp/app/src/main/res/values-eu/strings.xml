@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="users">Erabiltzaileak</string>
+    <string name="meetings">Bilerak</string>
+    <string name="welcome_back">Ongi etorri</string>
+    <string name="username">Erabiltzaile</string>
+    <string name="password">Pasahitza</string>
+    <string name="welcome_user">Ongi etorri</string>
+    <string name="schedule">Ordutegia</string>
+    <string name="module_placeholder">Irakasgaia</string>
+    <string name="search">Bilatu</string>
+    <string name="search_hint">Bilatu beste erabiltzaileak</string>
+    <string name="home">Hasiera</string>
+    <string name="work_schedule">LAN ORDUTEGIA</string>
+    <string name="quick_access">SARBIDE AZKARRA</string>
+    <string name="application_settings">APLIKAZIOAREN EZARPENAK</string>
+    <string name="toggle_screen_mode">Aldatu modu ilunera</string>
+    <string name="language">Hizkuntza</string>
+    <string name="create_meeting">Bilera berria sortu</string>
+    <string name="meeting_at">Bilera:</string>
+    <string name="date">Data</string>
+    <string name="hour">Ordua</string>
+    <string name="user">Erabiltzailea</string>
+    <string name="title">Titulua</string>
+    <string name="description">Gaia</string>
+    <string name="create">Sortu</string>
+    <string name="accept">Onartu</string>
+    <string name="decline">Ukatu</string>
+    <string name="or">EDO</string>
+</resources>

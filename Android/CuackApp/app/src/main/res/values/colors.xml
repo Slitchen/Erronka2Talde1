@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/colors.xml -->
+<resources>
+    <!-- CUACK Brand Colors -->
+    <color name="primary">#55BAE7</color>
+    <color name="secondary">#1E3A52</color>
+
+    <!-- Backgrounds -->
+    <color name="background_light">#F8FAFC</color>
+    <color name="background_dark">#0F172A</color>
+    <color name="bg_dark">#303030</color>
+    <color name="bg_selectors_dark">#525252</color>
+    <color name="bg_selector">#E2E8F0</color>
+    <color name="bg_light">#FFFFFF</color>
+
+    <!-- Button Colors -->
+    <color name="button_light">#1E3A52</color>
+    <color name="button_dark">#55BAE7</color>
+
+    <!-- Slate Colors -->
+    <color name="slate_50">#F8FAFC</color>
+    <color name="slate_100">#F1F5F9</color>
+    <color name="slate_200">#E2E8F0</color>
+    <color name="slate_300">#CBD5E1</color>
+    <color name="slate_400">#94A3B8</color>
+    <color name="slate_500">#64748B</color>
+    <color name="slate_600">#475569</color>
+    <color name="slate_700">#334155</color>
+    <color name="slate_800">#1E293B</color>
+    <color name="slate_900">#0F172A</color>
+
+    <!-- Status Colors -->
+    <color name="confirm">#69C784</color>
+    <color name="canceled">#A64D4D</color>
+    <color name="conflict">#CAB254</color>
+
+    <!-- Common -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

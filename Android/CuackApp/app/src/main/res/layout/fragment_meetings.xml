@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.Meetings.MeetingsFragment"
+    android:background="?android:attr/windowBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/meetings"
+                android:textColor="?android:attr/textColorPrimary"
+
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"/>
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_settings"
+                android:backgroundTint="?android:attr/colorButtonNormal"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="15dp"
+                android:layout_gravity="end"
+                />
+        </FrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="?android:attr/colorBackgroundFloating"
+            app:cardCornerRadius="16dp"
+            android:layout_margin="10dp">
+            <GridLayout
+                android:id="@+id/scheduleGrid"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:padding="5dp">
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:elevation="10dp"
+            android:layout_marginTop="-70dp"
+            android:layout_marginEnd="5dp">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/ic_add_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="-5dp"
+                />
+            <Button
+                android:id="@+id/btnAddMeeting"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_add_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
