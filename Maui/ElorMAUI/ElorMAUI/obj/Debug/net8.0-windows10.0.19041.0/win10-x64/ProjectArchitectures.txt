@@ -1,0 +1,1 @@
+D:\Maui\ElorMAUI\ElorMAUI\ElorMAUI.csproj;x64

@@ -1,0 +1,250 @@
+﻿@using System.Text.Json
+@using ElorMAUI.Models
+@using ElorMAUI.Services
+@using Microsoft.AspNetCore.Authorization
+@inject IkastetxeService.IkastetxeService ikastetxeService
+@inject NavigationManager navManager
+@inject SessionService session
+@inject NavMenuService NavService
+
+@page "/home"
+
+<h1 style="color: blueviolet">Ikastetxeak</h1>
+
+@if (ikastetxeService.Ikastetxeak == null)
+{
+    <p>Kargatzen...</p>
+}
+else
+{
+    <p>Emaitzak: @listaFiltrada?.Count</p>
+
+    <div class="row mb-3">
+        <!-- Selector DTITUC -->
+        <div class="col">
+            <select class="form-select"
+                    @onchange="aukeraFiltro => { filtroDTITUC = aukeraFiltro.Value?.ToString(); ActualizarFiltros(); }">
+                <option value="">Mota guztiak</option>
+                @foreach (var aukera in opcionesDTITUC)
+                {
+                    <option value="@aukera" selected="@(aukera == filtroDTITUC)">
+                        @aukera
+                    </option>
+                }
+            </select>
+        </div>
+
+        <!-- Selector DTERRE -->
+        <div class="col">
+            <select class="form-select"
+                    disabled="@(string.IsNullOrEmpty(filtroDTITUC))"
+                    value="@filtroDTERRE"
+                    @onchange="aukeraFiltro => { filtroDTERRE = aukeraFiltro.Value?.ToString(); ActualizarFiltros(); }">
+                <option value="">Lurralde guztiak</option>
+                @foreach (var aukera in opcionesDTERRE)
+                {
+                    <option value="@aukera" selected="@(aukera == filtroDTERRE)">
+                        @aukera
+                    </option>
+                }
+            </select>
+        </div>
+
+        <!-- Selector DMUNIC -->
+        <div class="col">
+            <select class="form-select"
+                    disabled="@(string.IsNullOrEmpty(filtroDTITUC) || string.IsNullOrEmpty(filtroDTERRE))"
+                    value="@filtroDMUNIC"
+                    @onchange="aukeraFiltro => { filtroDMUNIC = aukeraFiltro.Value?.ToString(); ActualizarFiltros(); }">
+                <option value="">Udalerri guztiak</option>
+                @foreach (var aukera in opcionesDMUNIC)
+                {
+                    <option value="@aukera" selected="@(aukera == filtroDMUNIC)">
+                        @aukera
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <!-- Taula -->
+    <table class="table table-bordered table-striped text-lowercase">
+        <thead>
+            <tr>
+                <th>Izena</th>
+                <!--<th>Orrialdea</th>-->
+                <th>Mota (DTITUC)</th>
+                <th>Lurraldea (DTERRE)</th>
+                <th>Udalerria (DMUNIC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in IkastetxeakPagination)
+            {
+                <tr>
+                    <td>
+                        <button class="btn btn-sm btn-toolbar"
+                                @onclick="@(() => Xehetasunak(item))">
+                            @item.Izena?.ToLower()
+                        </button>
+                    </td>
+                    <!--<td>@item.Orrialdea?.ToLower()</td>-->
+                    <td>@item.Mota?.ToLower()</td>
+                    <td>@item.Lurraldea?.ToLower()</td>
+                    <td>@item.Udalerria?.ToLower()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Paginazioa -->
+    <div class="d-flex justify-content-center align-items-center mt-3 gap-2">
+        <button class="btn btn-sm btn-secondary"
+                @onclick="@(() => SetPage(1))"
+                disabled="@(currentPage == 1)">
+            Lehenengoa
+        </button>
+
+        <button class="btn btn-sm btn-secondary"
+                @onclick="@(() => SetPage(currentPage - 1))"
+                disabled="@(currentPage == 1)">
+            Aurrekoa
+        </button>
+
+        <span>Orria @currentPage / @TotalPages</span>
+
+        <button class="btn btn-sm btn-secondary"
+                @onclick="@(() => SetPage(currentPage + 1))"
+                disabled="@(currentPage == TotalPages)">
+            Hurrengoa
+        </button>
+
+        <button class="btn btn-sm btn-secondary"
+                @onclick="@(() => SetPage(TotalPages))"
+                disabled="@(currentPage == TotalPages)">
+            Azkena
+        </button>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public long? Id { get; set; }
+
+    // Lista original
+    List<Ikastetxea> lista = new();
+
+    // Lista filtrada
+    private List<Ikastetxea> listaFiltrada = new();
+
+    // Filtros
+    string? filtroDTITUC;
+    string? filtroDTERRE;
+    string? filtroDMUNIC;
+
+    // Opciones de los selectores
+    List<string?> opcionesDTITUC = new();
+    List<string?> opcionesDTERRE = new();
+    List<string?> opcionesDMUNIC = new();
+
+    // Paginazioa
+    private int pageSize = 10;
+    private int currentPage = 1;
+
+    private IEnumerable<Ikastetxea> IkastetxeakPagination =>
+        listaFiltrada.Skip((currentPage - 1) * pageSize).Take(pageSize);
+
+    private int TotalPages =>
+        (int)Math.Ceiling((double)listaFiltrada.Count / pageSize);
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavService.RemoveNavItemsStartingWith("/xehetasunak/");
+        NavService.AddNavItem("CRUD", "/crud");
+
+        try
+        {
+            string rutaCopia =
+                Path.Combine(FileSystem.AppDataDirectory, "EuskadiLatLon_Editable.json");
+            string json;
+
+            if (File.Exists(rutaCopia))
+            {
+                json = await File.ReadAllTextAsync(rutaCopia);
+            }
+            else
+            {
+                using var stream =
+                    await FileSystem.OpenAppPackageFileAsync("EuskadiLatLon.json");
+                using var reader = new StreamReader(stream);
+                json = await reader.ReadToEndAsync();
+            }
+
+            var root = JsonSerializer.Deserialize<Root>(json);
+            lista = root?.Centros ?? new List<Ikastetxea>();
+            ikastetxeService.Ikastetxeak = lista;
+
+            ActualizarFiltros();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    void ActualizarFiltros()
+    {
+        if (string.IsNullOrEmpty(filtroDTITUC))
+        {
+            filtroDTERRE = "";
+            filtroDMUNIC = "";
+        }
+        else if (string.IsNullOrEmpty(filtroDTERRE))
+        {
+            filtroDMUNIC = "";
+        }
+
+        opcionesDTITUC = lista.Select(i => i.Mota)
+                              .Where(i => !string.IsNullOrEmpty(i))
+                              .Distinct()
+                              .OrderBy(i => i)
+                              .ToList();
+
+        listaFiltrada = lista
+            .Where(i => string.IsNullOrEmpty(filtroDTITUC) || i.Mota == filtroDTITUC)
+            .ToList();
+
+        opcionesDTERRE = listaFiltrada.Select(i => i.Lurraldea)
+                                      .Where(i => !string.IsNullOrEmpty(i))
+                                      .Distinct()
+                                      .OrderBy(i => i)
+                                      .ToList();
+
+        listaFiltrada = listaFiltrada
+            .Where(i => string.IsNullOrEmpty(filtroDTERRE) || i.Lurraldea == filtroDTERRE)
+            .ToList();
+
+        opcionesDMUNIC = listaFiltrada.Select(i => i.Udalerria)
+                                      .Where(i => !string.IsNullOrEmpty(i))
+                                      .Distinct()
+                                      .OrderBy(i => i)
+                                      .ToList();
+
+        listaFiltrada = listaFiltrada
+            .Where(i => string.IsNullOrEmpty(filtroDMUNIC) || i.Udalerria == filtroDMUNIC)
+            .ToList();
+
+        currentPage = 1;
+    }
+
+    private void SetPage(int page)
+    {
+        if (page >= 1 && page <= TotalPages)
+            currentPage = page;
+    }
+
+    private void Xehetasunak(Ikastetxea ikastetxea)
+    {
+        navManager.NavigateTo($"/xehetasunak/{ikastetxea.Id}");
+    }
+}

@@ -1,0 +1,263 @@
+﻿@page "/crud"
+@using System.Text.Json
+@using ElorMAUI.Models
+@using ElorMAUI.Services
+@inject IJSRuntime JS
+@inject NavMenuService NavService
+
+<h1 style="color: blueviolet">Ikastetxeen CRUDa</h1>
+
+<div class="table-responsive">
+    <table class="table table-sm table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Izena</th>
+                <th>Udalerria</th>
+                <th>Ekintzak</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in CentrosPaginados)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Izena</td>
+                    <td>@item.Udalerria</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" @onclick="() => Editar(item)">✏️</button>
+                        <button class="btn btn-sm btn-danger" @onclick="() => Eliminar(item.Id)">🗑️</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-center align-items-center gap-3 mb-4">
+    <button class="btn btn-outline-secondary btn-sm"
+            @onclick="() => paginaActual--"
+            disabled="@(paginaActual == 1)">
+        Aurrekoa
+    </button>
+
+    <span>
+        Orria @paginaActual / @TotalPaginas (@listaCompleta.Count ikastetxe)
+    </span>
+
+    <button class="btn btn-outline-secondary btn-sm"
+            @onclick="() => paginaActual++"
+            disabled="@(paginaActual >= TotalPaginas)">
+        Hurrengoa
+    </button>
+</div>
+
+<div class="card p-4 shadow-sm">
+    <h3>
+        @(modeloEditado.Id == null || modeloEditado.Id == 0
+                ? "Ikastetxe berria gehitu"
+                : "Editatzen: " + modeloEditado.Izena)
+    </h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Izena (NOME)</label>
+            <input class="form-control" @bind="modeloEditado.Izena" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Udalerria (DMUNIC)</label>
+            <input class="form-control" @bind="modeloEditado.Udalerria" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Mota (DTITUC)</label>
+            <input class="form-control" @bind="modeloEditado.Mota" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Lurraldea (DTERRE)</label>
+            <input class="form-control" @bind="modeloEditado.Lurraldea" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Webgunea (PAGINA)</label>
+            <input class="form-control" @bind="modeloEditado.Orrialdea" />
+        </div>
+    </div>
+    <div class="d-flex gap-2">
+        <button class="btn btn-success" @onclick="Guardar">
+            💾 Aldaketak gorde
+        </button>
+        @if (modeloEditado.Id > 0)
+        {
+            <button class="btn btn-light" @onclick="LimpiarFormulario">
+                Utzi
+            </button>
+        }
+    </div>
+</div>
+
+<hr />
+
+<footer class="mt-5 p-3 bg-light border-top shadow-sm text-center">
+    <div class="container">
+        <p class="text-muted mb-2" style="font-size: 0.85rem;">
+            <strong>📁 JSON editagarriaren kokapena:</strong><br />
+            <code class="text-break">@rutaCopiaTrabajo</code>
+        </p>
+        <div class="d-flex justify-content-center gap-2">
+            <button class="btn btn-sm btn-outline-primary" @onclick="CopiarRuta">
+                📋 Bidea kopiatu
+            </button>
+
+            @if (DeviceInfo.Platform == DevicePlatform.WinUI)
+            {
+                <button class="btn btn-sm btn-outline-secondary" @onclick="AbrirCarpeta">
+                    📂 Karpeta ireki
+                </button>
+            }
+        </div>
+    </div>
+</footer>
+
+@code {
+    private List<Ikastetxea> listaCompleta = new();
+    private Ikastetxea modeloEditado = new Ikastetxea();
+
+    private string rutaCopiaTrabajo =
+        Path.Combine(FileSystem.AppDataDirectory, "EuskadiLatLon_Editable.json");
+
+    private int paginaActual = 1;
+    private int registrosPorPagina = 10;
+
+    private IEnumerable<Ikastetxea> CentrosPaginados =>
+        listaCompleta.Skip((paginaActual - 1) * registrosPorPagina)
+                     .Take(registrosPorPagina);
+
+    private int TotalPaginas =>
+        (int)Math.Ceiling((double)listaCompleta.Count / registrosPorPagina);
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavService.AddNavItem("Hasiera", "/home");
+        await CargarDatos();
+    }
+
+    private async Task CargarDatos()
+    {
+        try
+        {
+            string contenidoJson;
+
+            if (File.Exists(rutaCopiaTrabajo))
+            {
+                contenidoJson = await File.ReadAllTextAsync(rutaCopiaTrabajo);
+            }
+            else
+            {
+                using var stream =
+                    await FileSystem.OpenAppPackageFileAsync("EuskadiLatLon.json");
+                using var reader = new StreamReader(stream);
+                contenidoJson = await reader.ReadToEndAsync();
+
+                await File.WriteAllTextAsync(rutaCopiaTrabajo, contenidoJson);
+            }
+
+            var root = JsonSerializer.Deserialize<Root>(
+                contenidoJson,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            listaCompleta = root?.Centros ?? new List<Ikastetxea>();
+        }
+        catch (Exception ex)
+        {
+            await JS.InvokeVoidAsync("alert", "Errorea: " + ex.Message);
+        }
+    }
+
+    private async Task Guardar()
+    {
+        if (modeloEditado.Id == null || modeloEditado.Id == 0)
+        {
+            modeloEditado.Id =
+                listaCompleta.Any() ? listaCompleta.Max(i => i.Id ?? 0) + 1 : 1;
+
+            listaCompleta.Insert(0, modeloEditado);
+        }
+        else
+        {
+            var index = listaCompleta.FindIndex(i => i.Id == modeloEditado.Id);
+            if (index >= 0) listaCompleta[index] = modeloEditado;
+        }
+
+        await PersistirEnDisco();
+        LimpiarFormulario();
+    }
+
+    private async Task PersistirEnDisco()
+    {
+        var wrapper = new Root { Centros = listaCompleta };
+        var json = JsonSerializer.Serialize(
+            wrapper,
+            new JsonSerializerOptions { WriteIndented = true });
+
+        await File.WriteAllTextAsync(rutaCopiaTrabajo, json);
+        await JS.InvokeVoidAsync(
+            "alert",
+            "Datuak laneko kopian eguneratu dira.");
+    }
+
+    private void Editar(Ikastetxea item)
+    {
+        modeloEditado = new Ikastetxea
+        {
+            Id = item.Id,
+            Izena = item.Izena,
+            Udalerria = item.Udalerria,
+            Mota = item.Mota,
+            Lurraldea = item.Lurraldea,
+            Orrialdea = item.Orrialdea,
+            Email = item.Email,
+            Telefono = item.Telefono,
+            Direccion = item.Direccion,
+            Latitud = item.Latitud,
+            Longitud = item.Longitud
+        };
+    }
+
+    private async Task Eliminar(long? id)
+    {
+        bool confirmado = await JS.InvokeAsync<bool>(
+            "confirm",
+            $"ID {id} duen ikastetxea ezabatu nahi duzu?");
+
+        if (confirmado)
+        {
+            listaCompleta.RemoveAll(i => i.Id == id);
+            await PersistirEnDisco();
+        }
+    }
+
+    private void LimpiarFormulario()
+    {
+        modeloEditado = new Ikastetxea();
+    }
+
+    private async Task CopiarRuta()
+    {
+        await Clipboard.Default.SetTextAsync(rutaCopiaTrabajo);
+        await JS.InvokeVoidAsync(
+            "alert",
+            "Bidea arbelean kopiatu da");
+    }
+
+    private void AbrirCarpeta()
+    {
+        try
+        {
+            string folder = Path.GetDirectoryName(rutaCopiaTrabajo);
+            System.Diagnostics.Process.Start("explorer.exe", folder);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Ezin izan da karpeta ireki: " + ex.Message);
+        }
+    }
+}

@@ -1,0 +1,90 @@
+﻿@page "/weather/{Id:long}"
+@using ElorMAUI.Models
+@using Microsoft.Maui.Controls.Maps
+@using Microsoft.Maui.Maps
+@using ElorMAUI.Components.Pages
+@using ElorMAUI.Services
+@using Microsoft.AspNetCore.Authorization
+@inject NavigationManager navManager
+@inject IkastetxeService.IkastetxeService ikastetxeService
+@inject IJSRuntime JS
+@inject WeatherService weatherService
+@inject SessionService session
+@inject NavMenuService NavService
+@inject AirQualityService AirService
+
+@if (weather != null)
+{
+    <h1 style="color: blueviolet">Uneko eguraldia</h1>
+    <p>Tenperatura: @weather.Main.Temp °C</p>
+    <p>@weather.Weather[0].Description</p>
+}
+
+@if (airQuality != null)
+{
+    <h4>Airearen kalitatea</h4>
+    <p>AQI: @airQuality.List[0].Main.Aqi</p>
+    <p>Kalitatea: @airQuality.List[0].Main.AqiDescription</p>
+}
+
+@if (forecasts != null)
+{
+    <h4>Hurrengo egunetako aurreikuspena</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Data eta ordua</th>
+                <th>Tenperatura (°C)</th>
+                <th>Deskribapena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in forecasts.List.Take(10))
+            {
+                <tr>
+                    <td>@item.Dt_inteligente</td>
+                    <td>@item.Main.Temp</td>
+                    <td>@item.Weather[0].Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter] public long? Id { get; set; }
+
+    private WeatherResponse? weather;
+    private ForecastResponse? forecasts;
+    private AirQualityResponse? airQuality;
+    private Ikastetxea? ikastetxea;
+    public static Weather? Instance;
+
+    protected override void OnInitialized()
+    {
+        NavService.AddNavItem("Xehetasunak", $"/xehetasunak/{Id}");
+
+        Instance = this;
+
+        if (Id.HasValue && ikastetxeService.Ikastetxeak != null)
+        {
+            ikastetxea = ikastetxeService.Ikastetxeak
+                .FirstOrDefault(i => i.Id == Id.Value);
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        weather = await weatherService.GetCurrentWeather(
+            ikastetxea?.Longitud ?? 0,
+            ikastetxea?.Latitud ?? 0);
+
+        forecasts = await weatherService.GetForecast(
+            ikastetxea?.Longitud ?? 0,
+            ikastetxea?.Latitud ?? 0);
+
+        airQuality = await AirService.GetAirQualityAsync(
+            ikastetxea?.Longitud ?? 0,
+            ikastetxea?.Latitud ?? 0);
+    }
+}

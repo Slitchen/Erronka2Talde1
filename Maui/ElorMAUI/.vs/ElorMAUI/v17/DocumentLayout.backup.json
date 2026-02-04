@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Maui\\ElorMAUI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|d:\\maui\\elormaui\\elormaui\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{20009FBB-CE72-4A91-B325-5C2A90079643}|ElorMAUI\\ElorMAUI.csproj|solutionrelative:elormaui\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.razor",
+              "DocumentMoniker": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "ElorMAUI\\Components\\Pages\\Login.razor",
+              "ToolTip": "D:\\Maui\\ElorMAUI\\ElorMAUI\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "ElorMAUI\\Components\\Pages\\Login.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-04T07:06:52.706Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

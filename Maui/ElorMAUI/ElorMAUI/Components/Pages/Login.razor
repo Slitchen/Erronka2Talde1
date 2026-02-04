@@ -1,0 +1,50 @@
+﻿@page "/"
+@using ElorMAUI.Services
+@using Microsoft.AspNetCore.Authorization
+@inject LoginService loginService
+@inject NavigationManager navManager
+@inject SessionService session
+
+<h1 style="color: blueviolet">Saioa hasi</h1>
+
+<EditForm Model="@user" OnValidSubmit="Submit" class="d-flex flex-column align-items-center">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label>Erabiltzailea</label>
+        <input type="text" class="form-control" placeholder="Sartu zure erabiltzailea" @bind-value="user.username" />
+        <ValidationMessage For="@(() => user.username)"></ValidationMessage>
+    </div>
+    <div class="mt-2 form-group">
+        <label>Pasahitza</label>
+        <input type="password" class="form-control" placeholder="Sartu zure pasahitza" @bind-value="user.password" />
+        <ValidationMessage For="@(() => user.password)"></ValidationMessage>
+    </div>
+
+    <div class="text-center mt-2">
+        <button class="btn btn-primary" type="submit">Saioa hasi</button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(errorMezua))
+    {
+        <p class="text-danger mt-2">@errorMezua</p>
+    }
+</EditForm>
+
+@code {
+    Models.User user = new();
+    string? errorMezua;
+
+    private async Task Submit()
+    {
+        bool ok = await loginService.Login(user);
+
+        if (ok)
+        {
+            navManager.NavigateTo("/home");
+        }
+        else
+        {
+            errorMezua = "Erabiltzailea edo pasahitza okerra da";
+        }
+    }
+}
