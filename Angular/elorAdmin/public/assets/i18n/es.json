@@ -1,0 +1,204 @@
+{
+  "LOGIN": {
+    "TITULO": "Iniciar Sesión",
+    "USUARIO": "Usuario",
+    "PLACEHOLDER_USUARIO": "Ingrese su usuario",
+    "ERROR_USUARIO_REQ": "El usuario es obligatorio",
+    "PASSWORD": "Contraseña",
+    "PLACEHOLDER_PASSWORD": "Ingrese su contraseña",
+    "ERROR_PASSWORD_REQ": "La contraseña es obligatoria",
+    "BOTON_ENTRAR": "Entrar",
+    "ERROR_AUTH": "Usuario o contraseña incorrectos"
+  },
+
+  "NAVBAR": {
+    "LOGOUT": "Cerrar sesión"
+  },
+
+  "ROLES": {
+    "GOD": "GOD",
+    "ADMINISTRADOR": "ADMINISTRADOR",
+    "PROFESOR": "PROFESOR",
+    "ALUMNO": "ALUMNO"
+  },
+
+  "GOD": {
+    "TITULO": "GOD"
+  },
+
+  "ADMIN": {
+    "TITULO": "Administrador",
+    "BUSCADOR_PLACEHOLDER": "Buscar por nombre, apellido o ID...",
+    "STATS": {
+      "PROFESORES": "Profesores",
+      "ALUMNOS": "Alumnos",
+      "REUNIONES": "Reuniones hoy"
+    },
+    "LISTADO": {
+      "PROFESORES": "Profesores",
+      "ALUMNOS": "Alumnos",
+      "ADMINISTRADORES": "Administradores"
+    },
+    "ACCIONES": {
+      "EDITAR": "Editar",
+      "BORRAR": "Borrar",
+      "CANCELAR": "Cancelar",
+      "ACTUALIZAR": "Actualizar",
+      "CREAR_USUARIO": "Crear usuario",
+      "CREAR": "Crear"
+    },
+    "FORM": {
+      "TITULO_UPDATE": "Actualizar usuario",
+      "TITULO_CREAR": "Crear usuario",
+      "NOMBRE": "Nombre",
+      "APELLIDOS": "Apellidos",
+      "EMAIL": "Email",
+      "USUARIO": "Usuario",
+      "PASSWORD": "Contraseña",
+      "TEL1": "Teléfono 1",
+      "TEL2": "Teléfono 2",
+      "DIRECCION": "Dirección",
+      "URL_IMAGEN": "URL de imagen",
+      "TIPO": "Tipo",
+      "ERR_REQ": "Campo obligatorio",
+      "ERR_EMAIL": "Formato de email incorrecto",
+      "ERR_TEL": "Formato de teléfono incorrecto"
+    },
+    "REUNIONES": {
+      "TITULO": "Reuniones",
+      "ESTADO": "Estado",
+      "ASUNTO": "Asunto",
+      "PROFESOR": "Profesor",
+      "ALUMNO": "Alumno",
+      "LUGAR": "Lugar",
+      "FECHA": "Fecha",
+      "SIN_REUNIONES": "No hay reuniones.",
+      "PAG_PRIMERA": "Primera",
+      "PAG_ANTERIOR": "Anterior",
+      "PAG_SIGUIENTE": "Siguiente",
+      "PAG_ULTIMA": "Última"
+    }
+  },
+
+  "ALUMNO_PORTAL": {
+    "TITULO_PAGINA": "Portal del Alumno",
+    "SUBTITULO": "Gestión de perfil y horarios",
+    "SECCION_INFO": "Mi información",
+
+    "LABEL_USUARIO": "Usuario",
+    "LABEL_PASSWORD": "Contraseña",
+    "LABEL_EMAIL": "Email",
+    "LABEL_DNI": "DNI",
+    "LABEL_TELEFONOS": "Teléfonos",
+    "LABEL_DIRECCION": "Dirección",
+
+    "HORARIO": {
+      "TITULO": "Horario",
+      "HORA": "Hora"
+    },
+
+    "REUNIONES": {
+      "TITULO": "Reuniones",
+      "ESTADO": "Estado",
+      "ASUNTO": "Asunto",
+      "LUGAR": "Lugar",
+      "FECHA": "Fecha",
+      "SIN_REUNIONES": "No hay reuniones."
+    }
+  },
+
+  "PROFESOR_PORTAL": {
+    "TITULO_PAGINA": "Portal del Profesor",
+    "SUBTITULO": "Información personal, reuniones y centros educativos",
+    "SECCION_INFO": "Información personal",
+
+    "BUSCADOR_PLACEHOLDER": "Buscar profesores o alumnos...",
+    "OTROS_PROFESORES": "Otros profesores",
+    "ALUMNOS": "Alumnos",
+    "DETALLES_CLICK": "Haz clic para ver los detalles",
+
+    "ACCIONES": {
+      "VER": "Ver",
+      "OCULTAR": "Ocultar",
+      "USER": "Usuario",
+      "TEL": "Teléfono",
+      "EMAIL": "Email",
+      "DIR": "Dirección"
+    },
+
+    "REUNIONES": {
+      "TITULO": "Reuniones",
+      "ESTADO": "Estado",
+      "ASUNTO": "Asunto",
+      "LUGAR": "Lugar",
+      "FECHA": "Fecha",
+      "SIN_REUNIONES": "No hay reuniones programadas",
+
+      "BOTON_CREAR": "Crear reunión",
+      "FORM_TITULO": "Nueva reunión",
+
+      "LABEL_TITULO": "Título",
+      "LABEL_ASUNTO": "Asunto",
+      "LABEL_ALUMNO": "Alumno",
+      "LABEL_FECHA": "Fecha y hora",
+      "LABEL_AULA": "Aula",
+      "LABEL_CENTRO": "Centro",
+
+      "SELECT_ALUMNO": "Selecciona un alumno",
+      "SELECT_CENTRO": "Selecciona un centro",
+
+      "ERR_REQ": "Este campo es obligatorio",
+
+      "BTN_CANCELAR": "Cancelar",
+      "BTN_CREAR": "Crear"
+    },
+
+    "LISTADO_CENTROS": {
+      "TITULO": "Listado de centros",
+      "FILTRO_TITULARIDAD": "Titularidad",
+      "FILTRO_TERRITORIO": "Territorio",
+      "FILTRO_MUNICIPIO": "Municipio",
+
+      "TODAS": "Todas",
+      "TODOS": "Todos",
+
+      "RESULTADOS": "Resultados",
+      "CENTROS_MIN": "centros",
+
+      "TABLA_ID": "ID",
+      "TABLA_NOMBRE": "Nombre",
+      "TABLA_PROVINCIA": "Provincia",
+
+      "SIN_CENTROS": "No hay centros disponibles",
+
+      "PAG_PRIMERA": "Primera",
+      "PAG_ANTERIOR": "Anterior",
+      "PAG_SIGUIENTE": "Siguiente",
+      "PAG_ULTIMA": "Última",
+
+      "PAGINA_LABEL": "Página",
+      "DE_LABEL": "de"
+    }
+  },
+
+  "CENTRO": {
+    "TITULO": "Centro",
+    "NOMBRE": "Nombre",
+    "TITULARIDAD": "Titularidad",
+    "MUNICIPIO": "Municipio",
+    "PROVINCIA": "Provincia",
+    "DIRECCION": "Dirección",
+    "CP": "Código Postal",
+    "TELEFONO": "Teléfono",
+    "ERROR_MAPA": "Las coordenadas de este centro no se han podido cargar."
+  },
+  
+  "DIAS": {
+  "LUNES": "Lunes",
+  "MARTES": "Martes",
+  "MIERCOLES": "Miércoles",
+  "JUEVES": "Jueves",
+  "VIERNES": "Viernes"
+}
+
+}

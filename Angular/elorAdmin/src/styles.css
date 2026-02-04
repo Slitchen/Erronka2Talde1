@@ -1,25 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
-.navbar .container {
-  display: flex;
+/* LIBRERIA PARA EL MAPA */
+@import "leaflet/dist/leaflet.css";
+
+/* MODO CLARO */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
 }
 
-.logreg {
-  display: flex;
-  margin-right: 30px;
-  gap: 20px;
-  font-size: 12px;
-  align-items: center;
+/* MODO OSCURO */
+body.dark-mode {
+  --bg-color: #c5c5c5d5;   /* GRIS CLARO */
+  --text-color: #1a1a1a; /* TEXTO OSCURO */
 }
 
-.options {
-  color: black;
-  text-decoration: none;
-}
-
-.imageElorrieta{
-    margin-right: 50px;
-}
-
-.aukerak{
-    margin-left: 20px;
+/* FONDO Y TEXTO */
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color .3s, color .3s;
 }

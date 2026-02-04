@@ -1,10 +1,19 @@
 import { Routes } from '@angular/router';
-import { Home } from './pages/home/home';
 import { Login } from './pages/login/login';
-import { Register } from './pages/register/register';
+import { authGuardGuard } from '../app/guards/auth-guard-guard';
+import { Role } from './models/Role';
+import { AdminHome } from './pages/admin-home/admin-home';
+import { IkasleHome } from './pages/ikasle-home/ikasle-home';
 
 export const routes: Routes = [
-    { path: '', component: Home },
-    { path: 'login', component: Login },
-    { path: 'register', component: Register}
+  
+  { path: 'login', component: Login },
+  { path: 'god', loadComponent: () => import('./pages/god-home/god-home').then(c => c.GodHome), canActivate: [authGuardGuard], data: { roles: [Role.GOD] } },
+  { path: 'administrador', component: AdminHome, canActivate: [authGuardGuard], data: { roles: [Role.ADMINISTRADOR] } },
+  { path: 'profesor', loadComponent: () => import('./pages/irakasle-home/irakasle-home').then(c => c.IrakasleHome), canActivate: [authGuardGuard], data: { roles: [Role.PROFESOR] }},
+  { path: 'alumno', component: IkasleHome, canActivate: [authGuardGuard], data: { roles: [Role.ALUMNO] } },
+  { path: 'centro/:ccen', loadComponent: () => import('./pages/centro-details/centro-details').then(c => c.CentroDetails), canActivate: [authGuardGuard], data: { roles: [Role.PROFESOR, Role.ALUMNO, Role.ADMINISTRADOR] } },
+
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' }
 ];

@@ -1,22 +1,25 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+@if(isLoggedIn && !isLoginRoute){
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <a class="logo" (click)="onLogoClick()">
+        <img src="logo-elorrieta.jpg" alt="Elorrieta Ikastetxea" />
+      </a>
+    </div>
 
-<main class="main">
-  <div class="content">
-        <router-outlet />
-  </div>
+    <!-- ROL DE USUARIO Y BOTON DE LOGOUT -->
+    <div class="navbar-right">
+      <span class="user-role">{{ 'ROLES.' + userRole | translate }}</span>
+      <button class="logout-btn" (click)="logout()">
+        {{ 'NAVBAR.LOGOUT' | translate }}
+      </button>
+    </div>
+  </header>
+}
+
+<!-- SELECTOR DE IDIOMA Y TEMA -->
+<main class="main-content">
+  <app-language-selector></app-language-selector>
+  <app-theme-selector></app-theme-selector>
+  <router-outlet></router-outlet>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

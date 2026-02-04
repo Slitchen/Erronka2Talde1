@@ -1,14 +1,48 @@
- <nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="aukerak">
-      <a [routerLink]="['/']">
-        <img class="imageElorrieta" src="logo-elorrieta.jpg" width="35%" height="35%" />
-      </a>
-      <a class="navbar-brand">Login</a>
+<div class="login-container">
+  <!-- ENCABEZADO -->
+  <h2>{{ 'LOGIN.TITULO' | translate }}</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+    <!-- CAMPO USUARIO -->
+    <div class="form-group">
+      <label for="username">{{ 'LOGIN.USUARIO' | translate }}</label>
+      <input
+        id="username"
+        type="text"
+        formControlName="username"
+        [placeholder]="'LOGIN.PLACEHOLDER_USUARIO' | translate"
+      />
+      @if(loginForm.controls['username'].invalid && loginForm.controls['username'].touched){
+        <small 
+          class="error">
+          {{ 'LOGIN.ERROR_USUARIO_REQ' | translate }}
+        </small>
+      }
     </div>
-    <div class="logreg">
-      <a class="options" routerLink="/login">login</a>
-      <a class="options" routerLink="/register">register</a>
+
+    <!-- CAMPO CONTRASEÑA -->
+    <div class="form-group">
+      <label for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        [placeholder]="'LOGIN.PLACEHOLDER_PASSWORD' | translate"
+      />
+      @if(loginForm.controls['password'].invalid && loginForm.controls['password'].touched){
+        <small class="error">
+          {{ 'LOGIN.ERROR_PASSWORD_REQ' | translate }}
+        </small>
+      }
     </div>
-  </div>
-</nav>
+
+    <!-- BOTÓN ENTRAR -->
+    <button type="submit">{{ 'LOGIN.BOTON_ENTRAR' | translate }}</button>
+  </form>
+
+  <!-- MENSAJE DE ERROR -->
+  @if(errorMessage){
+    <p class="error">{{ errorMessage | translate }}</p>
+  }
+</div>

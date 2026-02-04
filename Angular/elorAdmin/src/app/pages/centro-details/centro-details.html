@@ -1,0 +1,34 @@
+
+@if(centro()){
+  @let c = centro();
+
+  <div class="container py-4">
+
+    <!-- ENCABEZADO -->
+    <h2 class="text-primary fw-bold mb-4">
+      {{ 'CENTRO.TITULO' | translate }} {{ c?.CCEN }}
+    </h2>
+
+    <!-- DETALLES DEL CENTRO -->
+    <div class="card shadow-sm p-4">
+      <p><strong>{{ 'CENTRO.NOMBRE' | translate }}:</strong> {{ c!.NOM.toLowerCase() }}</p>
+      <p><strong>{{ 'CENTRO.TITULARIDAD' | translate }}:</strong> {{ c!.DTITUC.toLowerCase() }}</p>
+      <p><strong>{{ 'CENTRO.MUNICIPIO' | translate }}:</strong> {{ c!.DMUNIC.toLowerCase() }}</p>
+      <p><strong>{{ 'CENTRO.PROVINCIA' | translate }}:</strong> {{ c!.DTERRE.toLowerCase() }}</p>
+      <p><strong>{{ 'CENTRO.DIRECCION' | translate }}:</strong> {{ c!.DOMI.toLowerCase() }}</p>
+      <p><strong>{{ 'CENTRO.CP' | translate }}:</strong> {{ c?.CPOS }}</p>
+      <p><strong>{{ 'CENTRO.TELEFONO' | translate }}:</strong> {{ c?.TEL1 }}</p>
+    </div>
+
+    <!-- MAPA -->
+    @if(coordenadasInvalidas()){
+      <div class="alert alert-warning mt-3">
+        {{ 'CENTRO.ERROR_MAPA' | translate }}
+      </div>
+    }
+
+    @if(!coordenadasInvalidas()){
+      <div id="map" style="height: 350px; border-radius: 8px;"></div>
+    }
+  </div>
+}

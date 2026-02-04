@@ -1,0 +1,28 @@
+<nav class="lang-selector">
+  <button 
+    type="button"
+    [class.active]="currentLang === 'eu'" 
+    (click)="changeLang('eu')"
+    i18n-title="@@titleEu"
+    title="Aldatu euskarara">
+    EU
+  </button>
+
+  <button 
+    type="button"
+    [class.active]="currentLang === 'es'" 
+    (click)="changeLang('es')"
+    i18n-title="@@titleEs"
+    title="Cambiar a español">
+    ES
+  </button>
+
+  <button 
+    type="button"
+    [class.active]="currentLang === 'en'" 
+    (click)="changeLang('en')"
+    i18n-title="@@titleEn"
+    title="Switch to English">
+    EN
+  </button>
+</nav>
